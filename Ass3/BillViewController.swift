@@ -1,10 +1,3 @@
-//
-//  BillViewController.swift
-//  Ass3
-//
-//  Created by Bob on 2022/5/19.
-//
-
 import UIKit
 
 class BillViewController: UIViewController {
