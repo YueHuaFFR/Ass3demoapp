@@ -28,12 +28,64 @@ class InPutViewController: UIViewController, UITextFieldDelegate  {
         categoryT.textAlignment = .center // Center text
         
         accountT.delegate = self
-//        accountT.placeholder = updateAmount()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        guard let text = textField.text else {
+            return true
+        }
+
+        /// 1.过滤删除事件
+        guard !string.isEmpty else {
+            return true
+        }
+
+        /// 2.检查允许输入的合法字符
+        guard "0123456789.".contains(string) else {
+            return false
+        }
+
+        /// 3.检查总长度限制 (最多输入10位)
+        if text.count >= 10 {
+            return false
+        }
+
+        /// 4.检查小数点后位数限制 (小数点后最多输入2位)
+        if let ran = text.range(of: "."), range.location - NSRange(ran, in: text).location > 2 {
+            return false
+        }
+
+        /// 5.检查首位输入是否为0
+        if text == "0", string != "." {
+            textField.text = string
+            return false
+        }
+
+        /// 6.特殊情况检查
+        guard string == "." || string == "0" else {
+               return true
+           }
+
+        /// a.首位小数点替换为0.
+        if text.count == 0, string == "." {
+            textField.text = "0."
+            return false
+        }
+
+        /// b.禁止多次输入小数点
+        if text.range(of: ".") != nil, string == "." {
+            return false
+        }
+
+        return true
+    }
+
+    
     @IBAction func saveClick(_ sender: Any) {
         if (categoryT.text!.count == 0) {
             // A warning appears: Please enter the category
@@ -60,10 +112,12 @@ class InPutViewController: UIViewController, UITextFieldDelegate  {
         NSArray(array: tfArray!).write(toFile: filePath, atomically: true)
         
         let nameAlert = UIAlertController(title: "Notice", message: "Your bill have been saved", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .cancel)
-        nameAlert.addAction(ok)
+        let okAction = UIAlertAction(title: "sure", style: .default) { (action) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        nameAlert.addAction(okAction)
         present(nameAlert, animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
+        
     }
     @IBAction func HomeClick(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

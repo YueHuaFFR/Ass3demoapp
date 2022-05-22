@@ -82,10 +82,11 @@ class UpdateViewController: UIViewController, UITextFieldDelegate  {
         NSArray(array: tfArray!).write(toFile: filePath, atomically: true)
         
         let nameAlert = UIAlertController(title: "Notice", message: "Your bill have been saved", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .cancel)
-        nameAlert.addAction(ok)
+        let okAction = UIAlertAction(title: "sure", style: .default) { (action) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        nameAlert.addAction(okAction)
         present(nameAlert, animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func HomeClick(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

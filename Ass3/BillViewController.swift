@@ -20,6 +20,7 @@ class BillViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName:"BillViewCell", bundle:nil),
                     forCellReuseIdentifier:"BillViewCell")
+        tableView.tableFooterView = UIView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,8 +31,9 @@ class BillViewController: UIViewController {
     
     func getData() {
         // 本地获取数据
-         let tfArray = NSArray(contentsOfFile:NSHomeDirectory() + "/Documents/tfDic.plist") as! [NSDictionary]
-        self.datasource = tfArray
+         let tfArray = NSArray(contentsOfFile:NSHomeDirectory() + "/Documents/tfDic.plist") as? [NSDictionary]
+        if tfArray == nil { return }
+        self.datasource = tfArray!
          tableView.reloadData()
     }
 }

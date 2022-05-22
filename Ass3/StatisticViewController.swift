@@ -40,7 +40,7 @@ class StatisticViewController: UIViewController {
     //添加饼状图
     func addPieChart(){
         pieChartView.backgroundColor = ZHFColor.white
-        pieChartView.frame = CGRect(x: 0, y: 0, width: contentView.bounds.size.width, height: contentView.bounds.size.height)
+        pieChartView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-200)
         pieChartView.delegate = self
         contentView.addSubview(pieChartView)
     }
@@ -102,7 +102,7 @@ class StatisticViewController: UIViewController {
         }
         if TransportationSouce.count > 0 {
             tempArr.add(TransportationSouce)
-            for dict in HouseSouce {
+            for dict in TransportationSouce {
                 let money = dict["money"] as! String
                 let pricetemp = Double(money)
                 price += pricetemp!
@@ -110,7 +110,7 @@ class StatisticViewController: UIViewController {
         }
         if EntertainmentSouce.count > 0 {
             tempArr.add(EntertainmentSouce)
-            for dict in HouseSouce {
+            for dict in EntertainmentSouce {
                 let money = dict["money"] as! String
                 let pricetemp = Double(money)
                 price += pricetemp!
@@ -118,7 +118,7 @@ class StatisticViewController: UIViewController {
         }
         if ShopSouce.count > 0 {
             tempArr.add(ShopSouce)
-            for dict in HouseSouce {
+            for dict in ShopSouce {
                 let money = dict["money"] as! String
                 let pricetemp = Double(money)
                 price += pricetemp!

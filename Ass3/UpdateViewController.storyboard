@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -63,7 +64,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzJ-7v-d80">
-                                <rect key="frame" x="60" y="812" width="294" height="50"/>
+                                <rect key="frame" x="60" y="792" width="294" height="50"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="81I-dX-07X"/>
@@ -79,10 +80,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ty-Qi-r3v">
-                                <rect key="frame" x="60" y="729" width="294" height="53"/>
+                                <rect key="frame" x="60" y="712" width="294" height="50"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="117" id="6tN-mk-FLT"/>
+                                    <constraint firstAttribute="height" constant="50" id="Qp7-M6-6gH"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
@@ -102,7 +104,7 @@
                             <constraint firstItem="p85-Gi-lts" firstAttribute="trailing" secondItem="Rbp-a9-aI2" secondAttribute="trailing" constant="20" id="3qD-TV-LpI"/>
                             <constraint firstItem="hX0-qD-vsX" firstAttribute="centerY" secondItem="KVJ-HK-bTE" secondAttribute="centerY" id="9E8-Oe-kvn"/>
                             <constraint firstItem="0ty-Qi-r3v" firstAttribute="leading" secondItem="p85-Gi-lts" secondAttribute="leading" constant="60" id="A1A-Pv-1zg"/>
-                            <constraint firstItem="p85-Gi-lts" firstAttribute="bottom" secondItem="mzJ-7v-d80" secondAttribute="bottom" id="Del-MP-xXM"/>
+                            <constraint firstItem="p85-Gi-lts" firstAttribute="bottom" secondItem="mzJ-7v-d80" secondAttribute="bottom" constant="20" id="Del-MP-xXM"/>
                             <constraint firstItem="Y8J-sF-Lk1" firstAttribute="leading" secondItem="qw9-Hn-HzH" secondAttribute="trailing" constant="20" id="EDV-0A-gyl"/>
                             <constraint firstItem="Y8J-sF-Lk1" firstAttribute="centerY" secondItem="qw9-Hn-HzH" secondAttribute="centerY" id="ETX-cE-s47"/>
                             <constraint firstItem="Rbp-a9-aI2" firstAttribute="leading" secondItem="sGl-hW-dvc" secondAttribute="trailing" constant="20" id="Jb2-1D-2cA"/>
