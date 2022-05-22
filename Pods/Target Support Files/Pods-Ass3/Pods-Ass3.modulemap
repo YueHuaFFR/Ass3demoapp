@@ -1,0 +1,6 @@
+framework module Pods_Ass3 {
+  umbrella header "Pods-Ass3-umbrella.h"
+
+  export *
+  module * { export * }
+}
